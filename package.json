@@ -1,0 +1,19 @@
+{
+  "name": "server-invoice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "convert-excel-to-json": "^1.6.1",
+    "exceljs": "^1.15.0",
+    "express": "^4.17.1",
+    "pdfkit": "^0.10.0",
+    "sqlite3": "^4.1.0",
+    "xlsx-to-json-lc": "^0.5.0"
+  }
+}
