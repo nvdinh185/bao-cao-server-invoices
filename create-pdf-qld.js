@@ -31,8 +31,10 @@ const create_pdf_report = async (bill_cycle) => {
     const doc = new PDFDocument(options);
     let out = fs.createWriteStream('./bao-cao/pdf.pdf')
     doc.pipe(out);
+    //Khai báo font chữ
     doc.registerFont('Time-new-roman-utf8', './fonts/times.ttf');
     doc.registerFont('OpenSans-Bold', './fonts/OpenSans-Bold.ttf');
+    //lấy dữ liệu từ db
     let results = await db.getRsts("select\
                                     d.name as area_name,\
                                     c.area_id,\
@@ -63,10 +65,7 @@ const create_pdf_report = async (bill_cycle) => {
     //duyet tat ca cac ban ghi va in ra file pdf
     for (let i = 0; ; i++) {
         let data = []
-        results.forEach((el, idx) => {
-            if (idx >= i * number_per_page && idx < (i + 1) * number_per_page)
-                data.push(el)
-        })
+        data = results.slice(i * number_per_page, (i + 1) * number_per_page)
         if (data.length > 0) {
             //Ghi header cua trang
             doc.font('OpenSans-Bold');
