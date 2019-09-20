@@ -42,7 +42,7 @@ const create_pdf_report = async (bill_cycle, staff_id) => {
                                         offset '"+ (i * number_per_page) + "'\
                                         ")
         let staff_name = await db.getRst("select name from staffs where id = " + staff_id)
-        //console.log(results.length)
+        // console.log(results.length)
         if (i > 0 && results.length > 0) doc.addPage()
         if (results.length > 0) {
             //sử dụng font chữ
@@ -87,4 +87,4 @@ const create_pdf_report = async (bill_cycle, staff_id) => {
     doc.end();
 }
 
-create_pdf_report("201906", "1")
+create_pdf_report("201901", "1")

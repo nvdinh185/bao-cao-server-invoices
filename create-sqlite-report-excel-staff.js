@@ -97,4 +97,4 @@ const create_report_detail = async (bill_cycle) => {
     }
 }
 
-create_report_detail("201905")
+create_report_detail("201901")
